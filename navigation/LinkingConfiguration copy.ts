@@ -6,29 +6,29 @@ export default {
     screens: {
       Root: {
         screens: {
-          Home: {
+          TabOne: {
             screens: {
-              HomeScreen: 'Home',
+              TabOneScreen: 'one',
             },
           },
-          Cart: {
+          TabTwo: {
             screens: {
-              CartScreen: 'Cart',
+              TabTwoScreen: 'two',
             },
           },
-          Upload: {
+          TabThree: {
             screens: {
-              UploadScreen: 'Upload',
+              TabThreeScreen: 'three',
             },
           },
-          Profile: {
+          TabFour: {
             screens: {
-              ProfileScreen: 'Profile',
+              TabFourScreen: 'four',
             },
           },
-          Settings: {
+          TabFive: {
             screens: {
-              SettingsScreen: 'Settings',
+              TabFiveScreen: 'five',
             },
           },                              
         },

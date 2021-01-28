@@ -5,12 +5,12 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import TabThreeScreen from '../screens/TabThreeScreen';
-import TabFourScreen from '../screens/TabFourScreen';
-import TabFiveScreen from '../screens/TabFiveScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList , TabFourParamList , TabFiveParamList  } from '../types';
+import HomeScreen from '../screens/HomeScreen';
+import CartScreen from '../screens/CartScreen';
+import UploadScreen from '../screens/UploadScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+import { BottomTabParamList, HomeParamList, CartParamList, UploadParamList , ProfileParamList , SettingsParamList  } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -19,39 +19,39 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
+        name="Home"
+        component={HomeNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="Cart"
+        component={CartNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="cart" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabThree"
-        component={TabThreeNavigator}
+        name="Upload"
+        component={UploadNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="camera" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabFour"
-        component={TabFourNavigator}
+        name="Profile"
+        component={ProfileNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="person" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabFive"
-        component={TabFiveNavigator}
+        name="Settings"
+        component={SettingsNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="settings" color={color} />,
         }}
@@ -68,71 +68,67 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
-
-function TabOneNavigator() {
+const HomeStack = createStackNavigator<HomeParamList>();
+function HomeNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{ headerTitle: 'Home' }}
       />
-    </TabOneStack.Navigator>
+    </HomeStack.Navigator>
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
-
-function TabTwoNavigator() {
+const CartStack = createStackNavigator<CartParamList>();
+function CartNavigator() {
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+    <CartStack.Navigator>
+      <CartStack.Screen
+        name="CartScreen"
+        component={CartScreen}
+        options={{ headerTitle: 'Cart' }}
       />
-    </TabTwoStack.Navigator>
+    </CartStack.Navigator>
   );
 }
 
-const TabThreeStack = createStackNavigator<TabThreeParamList>();
-
-function TabThreeNavigator() {
+const UploadStack = createStackNavigator<UploadParamList>();
+function UploadNavigator() {
   return (
-    <TabThreeStack.Navigator>
-      <TabThreeStack.Screen
-        name="TabThreeScreen"
-        component={TabThreeScreen}
-        options={{ headerTitle: 'Tab Three Title' }}
+    <UploadStack.Navigator>
+      <UploadStack.Screen
+        name="UploadScreen"
+        component={UploadScreen}
+        options={{ headerTitle: 'Upload' }}
       />
-    </TabThreeStack.Navigator>
-  );
-}
-const TabFourStack = createStackNavigator<TabFourParamList>();
-
-function TabFourNavigator() {
-  return (
-    <TabFourStack.Navigator>
-      <TabFourStack.Screen
-        name="TabFourScreen"
-        component={TabFourScreen}
-        options={{ headerTitle: 'Tab Four Title' }}
-      />
-    </TabFourStack.Navigator>
+    </UploadStack.Navigator>
   );
 }
 
-const TabFiveStack = createStackNavigator<TabFiveParamList>();
-
-function TabFiveNavigator() {
+const ProfileStack = createStackNavigator<ProfileParamList>();
+function ProfileNavigator() {
   return (
-    <TabFiveStack.Navigator>
-      <TabFiveStack.Screen
-        name="TabFiveScreen"
-        component={TabFiveScreen}
-        options={{ headerTitle: 'Tab Five Title' }}
+    <ProfileStack.Navigator>
+      <ProfileStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ headerTitle: 'Profile' }}
       />
-    </TabFiveStack.Navigator>
+    </ProfileStack.Navigator>
+  );
+}
+
+const SettingsStack = createStackNavigator<SettingsParamList>();
+function SettingsNavigator() {
+  return (
+    <SettingsStack.Navigator>
+      <SettingsStack.Screen
+        name="SettingsScreen"
+        component={SettingsScreen}
+        options={{ headerTitle: 'Settings' }}
+      />
+    </SettingsStack.Navigator>
   );
 }
